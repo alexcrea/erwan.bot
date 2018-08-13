@@ -17,6 +17,7 @@ client.login(process.env.TOKEN);
 
 client.on('message', message => {
  
+var msg = message
 
 
  if (message.content === '--ping') {
