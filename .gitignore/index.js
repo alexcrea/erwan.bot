@@ -23,14 +23,14 @@ if(message.content == '--duel') {
     //checks if the username to fight is in the message
     let author1 = message.author.username;
     let user = message.mentions.users.first();
-    if(!user) return message.reply("you did not specify who you would like to fight!");
+    if(!user) return message.reply("vous n'avez pas précisé qui vous aimeriez combattre!");
 
     //checks if the users is trying to fight themselves
-    if(user.id == message.author.id) return message.reply('you cannot fight yourself!');
+    if(user.id == message.author.id) return message.reply('vous ne pouvez pas vous battre vous-même!');
 
     //checks if the user is trying to fight the bot
     if(user.bot ==  true)
-        return message.reply('you cannot fight a bot!');
+        return message.reply('vous ne pouvez pas combattre un bot!');
 
     //saves the two user ids to variables
     var fighter1 = message.author.id;
@@ -38,23 +38,23 @@ if(message.content == '--duel') {
 
     //announces challenge and awaits response
     var challenged = user.toString();
-    message.channel.send(`${challenged}, ${author1} has challenged you to a duel. Do you accept the challenge, yes or no?`)
+    message.channel.send(`${challenged}, ${author1} vous a défié à un duel. Acceptez-vous le défi, oui ou non?`)
         .then(() => {
-            message.channel.awaitMessages(response => response.content == 'yes' && response.author.id == fighter2 || response.content == 'no' && response.author.id == fighter2, {
+            message.channel.awaitMessages(response => response.content == 'oui' && response.author.id == fighter2 || response.content == 'non' && response.author.id == fighter2, {
                 max: 1,
                 time: 60000,
                 errors: ['time'],
             })
             .then((collected) => {
-                if (collected.first().content == 'yes') {
-                    message.channel.send(`${challenged} has accepted the challenge!`);
+                if (collected.first().content == 'oui') {
+                    message.channel.send(`${challenged} a accepté le défi! `);
                 }
-                else if(collected.first().content == 'no') {
-                    message.channel.send(`nope`);
+                else if(collected.first().content == 'non') {
+                    message.channel.send(`Nan`);
                 }
             })
             .catch(() => {
-                message.channel.send(`No response. Fight has been cancelled.`);
+                message.channel.send(`Pas de réponse. Le combat a été annulé.`);
             });
         });       
 }
