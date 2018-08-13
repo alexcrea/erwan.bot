@@ -17,15 +17,11 @@ client.login(process.env.TOKEN);
 
 client.on('message', message => {
 
-var msg = message 
-function doMagic8BallVoodoo() {
-    var rand = [' Absolument. ',':  Absolument pas. ',': C\'est vrai. ',': Impossible. ',':  Bien sûr. ',':  so. ',':  C\'est vrai. ',':  Ce n\'est pas vrai. ',':  Je suis très certain de cela. ',': J\'en doute beaucoup. ' , ': Les sources pointent vers no.', ':  Les théories le prouvent.', ':  Réponse hazy essaie encore', ': 8ball: Demande encore plus tard', ': 8ball ',': 8ball: ne peut pas prédire maintenant ',': 8ball: se concentrer et demander à nouveau'];
+  let args = msg.content.split(" ").slice(1);
 
-   return rand[Math.floor(Math.random()*rand.length)];
-}
-
- if(message.content == '--8ball') {
-    msg.channel.sendMessage(doMagic8BallVoodoo())
+if (command === "say") {
+     msg.delete();
+     msg.channel.sendMessage(args.join(" "));
   }
 
 
