@@ -19,7 +19,7 @@ client.on('message', message => {
 
   let args = msg.content.split(" ").slice(1);
 
-if (command === "say") {
+  if(message.content == '--say'){
      msg.delete();
      msg.channel.sendMessage(args.join(" "));
   }
