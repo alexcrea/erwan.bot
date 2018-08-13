@@ -18,10 +18,7 @@ client.on('message', message => {
 
 var msg = message
 
-   if (message.content === prefix + "ping"){
-   message.channel.send(`**${message.author.username} Pong! \nLa latence est** ${msg.createdTimestamp - message.createdTimestamp}ms.** La latence de l'API est **${Math.round(client.ping)}ms `)
-   
-  }
+ 
 
    if(message.content == '--botinfo') {
 
