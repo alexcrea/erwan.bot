@@ -9,7 +9,7 @@ const moment = require("moment");
 var prefix = ("--")
 
 client.on('ready', function() {
-	client.user.setActivity(`jsui heberger Cool`);
+	client.user.setActivity(`| --help | Heberger24/24 | En codage |`);
 	console.log("Conections en cour")
 });
 
