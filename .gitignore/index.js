@@ -16,7 +16,12 @@ client.login(process.env.TOKEN);
 
 client.on('message', message => {
 
+var msg = message 
 
+ if (message.content === '--ping') {
+   message.channel.send(`**${message.author.username} Pong! \nLa latence est** ${msg.createdTimestamp - message.createdTimestamp}ms.** La latence de l'API est **${Math.round(client.ping)}ms `)
+   
+  }
 
  
 
