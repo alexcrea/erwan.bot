@@ -4,6 +4,8 @@ const { Client, MessageAttachment } = require('discord.js');
 const fs = require('fs');
 const { version } = require("discord.js");
 const moment = require("moment");
+require("moment-duration-format");
+
 
 var prefix = ("--")
 
@@ -25,7 +27,7 @@ var msg = message
 
  
  
-
+  const duration = moment.duration(client.uptime).format(" D [days], H [hrs], m [mins], s [secs]");
    if(message.content == '--botinfo') {
 
 	
@@ -52,6 +54,10 @@ var msg = message
         {
                     name: ':ping_pong:Ping',
                     value: `${client.ping.toFixed(0)}ms`,
+          },
+	 {
+                    name: ':timer:Onligne Timer',
+                    value: `${duration}`,
           },
          {
                     name: ':computer:Discord.js Versions',
