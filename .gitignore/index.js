@@ -25,8 +25,8 @@ client.on('message', message => {
  }
 
  if (message.content === '--invite') {
-    msg.reply("Il semble que vous vouliez m\'inviter sur votre serveur. Vérifiez vos DM.")
-    msg.author.sendMessage("https://discordapp.com/oauth2/authorize?client_id=468140538537967626&scope=bot&permissions=14")
+   message.channel.send("Il semble que vous vouliez m\'inviter sur votre serveur. Vérifiez vos DM.")
+    msg.author.send("https://discordapp.com/oauth2/authorize?client_id=468140538537967626&scope=bot&permissions=14")
   }
  
  
