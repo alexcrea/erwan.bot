@@ -16,7 +16,7 @@ client.login(process.env.TOKEN);
 
 client.on('message', message => {
 
- var points = JSON.parse(fs.readFileSync('\\erwan.bot\\.gitignore\\point.json', 'utf8'));
+ var points = JSON.parse(fs.readFileSync('erwan.bot//.gitignore//point.json', 'utf8'));
  if (message.content.indexOf(prefix + 'dé') === 0) {
    
  let cdseconds = 5;	
@@ -115,7 +115,7 @@ if (message.content.indexOf(prefix + 'topdé') === 0) {
 
 
 
-fs.writeFile('\\erwan.bot\\.gitignore\\point.json', JSON.stringify(points), (err) => {
+fs.writeFile('erwan.bot//.gitignore//point.json', JSON.stringify(points), (err) => {
   if (err) console.error(err);
 });
 
