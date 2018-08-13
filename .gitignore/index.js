@@ -19,7 +19,7 @@ client.on('message', message => {
 var msg = message 
 
  if (message.content === '--ping') {
-  message.channel.send(`**${message.author.username} Pong! \nLa latence est** Pong! \`${client.pings[0]}ms\ `)
+  message.channel.send(`**${message.author.username} Pong! \nLa latence est** ${msg.createdTimestamp - message.createdTimestamp}ms`)
    
  }
 
