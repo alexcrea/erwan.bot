@@ -149,11 +149,11 @@ message.channel.send({embed: {
     description: "___________",
     fields: [{
         name: "📶 Latency",
-        value: `${diff}ms`,
+        value: `${Date.now() - start}ms`,
       },
       {
         name: "💻 API",
-        value: `${API}ms`,
+        value: `${client.ping).toFixed(2)}ms`,
       },
 
    ]
