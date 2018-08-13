@@ -19,7 +19,7 @@ client.on('message', message => {
 
 var msg = message 
 function doMagic8BallVoodoo() {
-    var rand = ['8ball: Absolument. ',': 8ball: Absolument pas. ',': 8ball: C\'est vrai. ',': 8ball: Impossible. ',': 8ball: Bien sûr. ',': 8ball so. ',': 8ball: C\'est vrai. ',': 8ball: Ce n\'est pas vrai. ',': 8ball: Je suis très certain de cela. ',': 8ball: J\'en doute beaucoup. ' , ': 8ball: Les sources pointent vers no.', ': 8ball: Les théories le prouvent.', ': 8ball: Réponse hazy essaie encore', ': 8ball: Demande encore plus tard', ': 8ball ',': 8ball: ne peut pas prédire maintenant ',': 8ball: se concentrer et demander à nouveau'];
+    var rand = [' Absolument. ',':  Absolument pas. ',': C\'est vrai. ',': Impossible. ',':  Bien sûr. ',':  so. ',':  C\'est vrai. ',':  Ce n\'est pas vrai. ',':  Je suis très certain de cela. ',': J\'en doute beaucoup. ' , ': Les sources pointent vers no.', ':  Les théories le prouvent.', ':  Réponse hazy essaie encore', ': 8ball: Demande encore plus tard', ': 8ball ',': 8ball: ne peut pas prédire maintenant ',': 8ball: se concentrer et demander à nouveau'];
 
    return rand[Math.floor(Math.random()*rand.length)];
 }
