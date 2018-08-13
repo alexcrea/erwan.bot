@@ -19,7 +19,14 @@ client.on('message', message => {
  
 var msg = message
 
+ const guildArray = client.guilds.map((guild) => {
+    return `${guild.name} : ${guild.id}`
+    })
 
+if (message.content === '--guildlist') {
+  message.channel.send(`\`\`\`${guildArray.join("\n")}\`\`\``)
+   
+ }
 
 
 var today = new Date()
