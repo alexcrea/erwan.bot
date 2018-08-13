@@ -26,7 +26,7 @@ client.on('message', message => {
 
  if (command === "--say") {
      msg.delete();
-     msg.channel.sendMessage(args.join(" "));
+     msg.channel.sendMessage(args1.join(" "));
   }
 
 
