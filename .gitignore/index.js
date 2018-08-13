@@ -17,9 +17,12 @@ client.login(process.env.TOKEN);
 
 client.on('message', message => {
 
-  let args = msg.content.split(" ").slice(1);
+  let args1 = msg.content.split(" ").slice(1);
 
-  if(message.content == '--say'){
+  let command = msg.content.split(" ")[0];
+  command = command.slice(config.prefix.length);
+
+ if (command === "--say") {
      msg.delete();
      msg.channel.sendMessage(args.join(" "));
   }
