@@ -19,11 +19,11 @@ client.on('message', message => {
  
 var msg = message
 
-var today = new Date()
-let Day = today.toString().split(" ")[0].concat("day");
-let Month = today.toString().split(" ")[1]
-let Year = today.toString().split(" ")[3]
-message.channel.send(`\`${Day}\` \`${Month}\` \`${Year}\`\n\`Heure:\` \`${today.toString().split(" ")[4]}\``)
+//var today = new Date()
+//let Day = today.toString().split(" ")[0].concat("day");
+//let Month = today.toString().split(" ")[1]
+//let Year = today.toString().split(" ")[3]
+//message.channel.send(`\`${Day}\` \`${Month}\` \`${Year}\`\n\`Heure:\` \`${today.toString().split(" ")[4]}\``)
 
  if (message.content === '--ping') {
   message.channel.send(`**${message.author.username} Pong! \nLa latence est** ${msg.createdTimestamp - message.createdTimestamp}ms`)
