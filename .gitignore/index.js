@@ -77,4 +77,41 @@ var msg = message
 	
        }
 
+
+
+
+
+
+  if(message.content == '--help') {
+
+message.channel.send({embed: {
+    color: 9247003,
+    title: "Liste des commandes",
+    description: "Commande",
+    fields: [{
+        name: "--ping",
+        value: "Ton ping actuele (Grosse maintenance)"
+      },
+      {
+        name: "--botinfo",
+        value: "Toute les info sur le bot"
+      }
+
+    ]
+	
+
+
+
+    //timestamp: new Date(),
+    //footer: {
+    //  icon_url: client.user.avatarURL,
+    //  text: "© Example"
+    //}
+  }
+});  
+
+
+
+
+
 });
