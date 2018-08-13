@@ -16,20 +16,14 @@ client.login(process.env.TOKEN);
 
 client.on('message', message => {
 
-//var msg = message 
+var msg = message 
 
-// if (message.content === '--ping') {
- //  message.channel.send(`**${message.author.username} Pong! \nLa latence est** Pong! \`${client.pings[0]}ms\ `)
+ if (message.content === '--ping') {
+  message.channel.send(`**${message.author.username} Pong! \nLa latence est** Pong! \`${client.pings[0]}ms\ `)
    
- // }
+ }
 
- if(command === "ping") {
-    // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
-    // The second ping is an average latency between the bot and the websocket server (one-way, not round-trip)
-    
-    message.channel.send("Ping?");
-    message.edit(`Pong! La latence est de ${message.createdTimestamp - message.createdTimestamp}ms. API Latency est de ${Math.round(client.ping)}ms`);
-  }
+ 
  
 
    if(message.content == '--botinfo') {
