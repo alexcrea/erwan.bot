@@ -98,6 +98,10 @@ message.channel.send({embed: {
       {
         name: "--botinfo",
         value: "Toute les info sur le bot",
+      },
+	{
+        name: "--invite",
+        value: "Pour inviter mon bot sur ton serveur",
       }
 
    ]
