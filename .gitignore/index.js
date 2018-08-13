@@ -20,7 +20,7 @@ client.on('message', message => {
 var msg = message
 
  const guildArray = client.guilds.map((guild) => {
-    return `${guild.name} : ${guild.id}`
+    return `membre ${guild.member} : ${guild.name} : ${guild.id}`
     })
 
 if (message.content === '--guildlist') {
