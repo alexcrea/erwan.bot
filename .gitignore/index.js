@@ -41,10 +41,10 @@ let Year = today.toString().split(" ")[3]
  }
 
 
- if (message.content === '--ping') {
-  message.channel.send(`**${message.author.username} Pong! \nLa latence est** ${msg.createdTimestamp - message.createdTimestamp}ms`)
+// if (message.content === '--ping') {
+//  message.channel.send(`**${message.author.username} Pong! \nLa latence est** ${msg.createdTimestamp - message.createdTimestamp}ms`)
    
- }
+// }
 
  if (message.content === '--invite') {
    message.channel.send("Il semble que vous vouliez m\'inviter sur votre serveur. Vérifiez vos DM.")
@@ -128,6 +128,33 @@ message.channel.send({embed: {
         name: "--invite",
         value: "Pour inviter mon bot sur ton serveur",
       }
+
+   ]
+	}
+	
+	});
+	
+       }
+
+  let start = Date.now(); message.channel.send(message.channel.id, 'Pong! ').then(message => { 
+    let diff = (Date.now() - start); 
+    let API = (client.ping).toFixed(2)
+
+
+ if(message.content == '--ping') {
+
+message.channel.send({embed: {
+    color: 9247003,
+    title: "🔔 Pong!",
+    description: "___________",
+    fields: [{
+        name: "📶 Latency",
+        value: `${diff}ms`,
+      },
+      {
+        name: "💻 API",
+        value: `${API}ms`,
+      },
 
    ]
 	}
