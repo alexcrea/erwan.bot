@@ -90,28 +90,19 @@ message.channel.send({embed: {
     description: "Commande",
     fields: [{
         name: "--ping",
-        value: "Ton ping actuele (Grosse maintenance)"
+        value: "Ton ping actuele (Grosse maintenance)",
       },
       {
         name: "--botinfo",
-        value: "Toute les info sur le bot"
+        value: "Toute les info sur le bot",
       }
 
-    ]
+   ]
+	}
 	
-
-
-
-    //timestamp: new Date(),
-    //footer: {
-    //  icon_url: client.user.avatarURL,
-    //  text: "© Example"
-    //}
-  }
-});  
-
-
-
+	});
+	
+       }
 
 
 });
