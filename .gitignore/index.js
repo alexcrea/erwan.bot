@@ -16,18 +16,7 @@ client.on('ready', function() {
 client.login(process.env.TOKEN);
 
 client.on('message', message => {
-  if (msg.author.bot) return;
-  if (!msg.content.startsWith(config.prefix)) return;
-
-  let args1 = msg.content.split(" ").slice(1);
-
-  let command = msg.content.split(" ")[0];
-  command = command.slice(config.prefix.length);
-
- if (command === "--say") {
-     msg.delete();
-     msg.channel.sendMessage(args1.join(" "));
-  }
+ 
 
 
  if (message.content === '--ping') {
