@@ -16,6 +16,8 @@ client.on('ready', function() {
 client.login(process.env.TOKEN);
 
 client.on('message', message => {
+  if (msg.author.bot) return;
+  if (!msg.content.startsWith(config.prefix)) return;
 
   let args1 = msg.content.split(" ").slice(1);
 
