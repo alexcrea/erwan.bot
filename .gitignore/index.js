@@ -19,7 +19,7 @@ client.on('message', message => {
 
 var msg = message 
 
-if(command === `${prefix}fight`) {
+if(message.content == '--duel') {
     //checks if the username to fight is in the message
     let author1 = message.author.username;
     let user = message.mentions.users.first();
