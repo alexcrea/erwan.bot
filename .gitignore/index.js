@@ -28,7 +28,7 @@ client.on('message', message => {
     // The second ping is an average latency between the bot and the websocket server (one-way, not round-trip)
     
     message.channel.send("Ping?");
-    message.edit(`Pong! La latence est de ${m.createdTimestamp - message.createdTimestamp}ms. API Latency est de ${Math.round(client.ping)}ms`);
+    message.edit(`Pong! La latence est de ${message.createdTimestamp - message.createdTimestamp}ms. API Latency est de ${Math.round(client.ping)}ms`);
   }
  
 
