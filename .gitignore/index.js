@@ -48,7 +48,7 @@ if (message.content === '--guildlist') {
 
 var sender = message.author;
 
- var points = JSON.parse(fs.readFileSync('erwan.bot/.gitignore/point.json', 'utf8'));
+ var points = JSON.parse(fs.readFileSync('erwan.bot/.gitignore/points.json', 'utf8'));
 
 
 
@@ -136,7 +136,7 @@ if (message.content.indexOf(prefix + 'topdé') === 0) {
     
 
 
-fs.writeFile('erwan.bot/.gitignore/point.json', JSON.stringify(points), (err) => {
+fs.writeFile('erwan.bot/.gitignore/points.json', JSON.stringify(points), (err) => {
   if (err) console.error(err);
 });
 
