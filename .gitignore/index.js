@@ -199,19 +199,19 @@ message.channel.send({embed: {
     if (!message.content.startsWith(prefix)) return;
     switch (args[0].toLowerCase()) {
         case "mplay":
-            if (!message.guild.member(client.user).hasPermission('SPEAK')) return message.channel.send('**Sorry, but i cant join/speak in this channel!**').catch(console.error);
+            if (!message.guild.member(client.user).hasPermission('SPEAK')) return message.channel.send('** Désolé, mais je ne peux pas rejoindre / parler dans ce canal! **').catch(console.error);
             if (!args[1]) {
-                message.channel.send("**Please provide a URL YouTube link to me to play song.**");
+                message.channel.send("** S\'il vous plaît fournir un lien URL YouTube pour moi pour jouer la chanson. **");
                 return;
             }
 
             if (!message.member.voiceChannel) {
-                message.channel.send("**I think it may work better if you are in a voice channel!**");
+                message.channel.send("** Je pense que cela pourrait mieux fonctionner si vous êtes dans un canal vocal! **");
                 return;
             }
 
             if (console.error) {
-                message.channel.send("**Sorry, but i cant search videos in YouTube! Provide a link to play!**");
+                message.channel.send("** Désolé, mais je ne peux pas rechercher des vidéos sur YouTube! Fournir un lien pour jouer! **");
                 return;
             }
 
@@ -223,7 +223,7 @@ message.channel.send({embed: {
 
             server.queue.push(args[1]);
 
-            message.channel.sendMessage('``You song has been added to the queue.``')
+            message.channel.sendMessage('`` Votre chanson a été ajoutée à la file d'attente.``')
             if (!message.guild.voiceConnection) message.member.voiceChannel.join().then(function(connection) {
                 play(connection, message);
             });
@@ -231,42 +231,42 @@ message.channel.send({embed: {
         case "mstop":
             var server = servers[message.guild.id];
             if (!message.member.voiceChannel) {
-                message.channel.send("**I think it may work better if you are in a voice channel!**");
+                message.channel.send("** Je pense que cela pourrait mieux fonctionner si vous êtes dans un canal vocal! **");
                 return;
             }
 
             if (message.guild.voiceConnection) message.guild.voiceConnection.disconnect();
-            message.channel.send('``The queue of songs removed.``');
+            message.channel.send('`` La file d\'attente des chansons a été supprimée.``');
             break;
         case "mskip":
             if (!message.member.voiceChannel) {
-                message.channel.send("**I think it may work better if you are in a voice channel!**");
+                message.channel.send("** Je pense que cela pourrait mieux fonctionner si vous êtes dans un canal vocal! **");
                 return;
             }
 
             var server = servers[message.guild.id];
             if (server.dispatcher) server.dispatcher.end();
-            message.channel.send('``The song has been sucessfully skipped.``');
+            message.channel.send('`` La chanson a été sautée avec succès.``');
             break;
         case "mpause":
             if (!message.member.voiceChannel) {
-                message.channel.send("**I think it may work better if you are in a voice channel!**");
+                message.channel.send("** Je pense que cela pourrait mieux fonctionner si vous êtes dans un canal vocal! **");
                 return;
             }
 
             var server = servers[message.guild.id];
             if (server.dispatcher) server.dispatcher.pause();
-            message.channel.send('``The song is paused.``');
+            message.channel.send('`` La chanson est en pause.``');
             break;
         case "mresume":
             if (!message.member.voiceChannel) {
-                message.channel.send("**I think it may work better if you are in a voice channel!**");
+                message.channel.send("** Je pense que cela pourrait mieux fonctionner si vous êtes dans un canal vocal! **");
                 return;
             }
 
             var server = servers[message.guild.id];
             if (server.dispatcher) server.dispatcher.resume();
-            message.channel.send('``The song is sucessfully continued.``');
+            message.channel.send('`` La chanson est poursuivie avec succès.``');
             break;
     }
 
