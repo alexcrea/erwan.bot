@@ -35,10 +35,10 @@ let Month = today.toString().split(" ")[1]
 let Year = today.toString().split(" ")[3]
 //message.channel.send(`\`${Day}\` \`${Month}\` \`${Year}\`\n\`Heure:\` \`${today.toString().split(" ")[4]}\``)
 
- if (message.content === '--date') {
-  message.channel.send(`\`${Day}\` \`${Month}\` \`${Year}\`\n\`Heure:\` \`${today.toString().split(" ")[4]}\``)
+ //if (message.content === '--date') {
+  //message.channel.send(`\`${Day}\` \`${Month}\` \`${Year}\`\n\`Heure:\` \`${today.toString().split(" ")[4]}\``)
    
- }
+// }
 
 
  if (message.content === '--ping') {
@@ -137,6 +137,45 @@ message.channel.send({embed: {
        }
 
 
+let user;
+	// If the user mentions someone, display their stats. If they just run userinfo without mentions, it will show their own stats.
+    if (message.mentions.users.first()) {
+      user = message.mentions.users.first();
+    } else {
+        user = message.author;
+    }
+	// Define the member of a guild.
+    const member = message.guild.member(user);
+
+if(message.content == '--userinfo') {
+
+message.channel.send({embed: {
+    color: 9247003,
+    title: "Liste des commandes",
+    description: "Commande",
+    fields: [{
+        name: `${user.username}#${user.discriminator}`,
+        value: `ID : ${user.id}`,
+      },
+      {
+        name: `Nom : ${member.nickname !== null ? `${member.nickname}` : 'None'}`,
+        value: `Crée le : ${moment.utc(user.createdAt).format('dddd, MMMM Do YYYY, HH:mm:ss')}`,
+      },
+	 {
+        name:  `A rejoins le server : ${moment.utc(member.joinedAt).format('dddd, MMMM Do YYYY, HH:mm:ss')}`,
+        value: `Status : ${user.presence.status}`,
+      },
+	{
+        name: `Game : ${user.presence.game ? user.presence.game.name : 'None'}`,
+        value: member.roles.map(roles => `${roles.name}`).join(', '),
+      }
+
+   ]
+	}
+	
+	});
+	
+       }
 
 
 
