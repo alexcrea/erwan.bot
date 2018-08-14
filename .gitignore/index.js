@@ -6,7 +6,7 @@ const { version } = require("discord.js");
 const moment = require("moment");
 const YTDL = require("ytdl-core");
 const url = require("url")
-let XP = JSON.parse(fs.readFileSync('./XP.json', 'utf8'));
+let XP = JSON.parse(fs.readFileSync('erwan.bot/.gitignore/XP.json', 'utf8'));
 
 
 
@@ -51,7 +51,7 @@ let userData = XP[msg.author.id];
 	}
 	
 	console.log(XP)
-	fs.writeFile('./XP.json', JSON.stringify(XP), console.error);
+	fs.writeFile('erwan.bot/.gitignore/XP.json', JSON.stringify(XP), console.error);
 
 var msg = message
 
