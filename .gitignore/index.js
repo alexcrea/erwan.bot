@@ -35,10 +35,10 @@ if (message.content === '--guildlist') {
    var rnd = randomIntInc(1,5);
    console.log(rnd);
    if(rnd===1) message.channel.sendMessage("No.");
-   else if(rnd===2) message.channel.sendMessage("Not Probable.");
-   else if(rnd===3) message.channel.sendMessage("Maybe.");
-   else if(rnd===4) message.channel.sendMessage("Probably.");
-   else if(rnd===5) message.channel.sendMessage("Yes.");
+   else if(rnd===2) message.channel.sendMessage("Pas probable");
+   else if(rnd===3) message.channel.sendMessage("Peut être.");
+   else if(rnd===4) message.channel.sendMessage("Probablement.");
+   else if(rnd===5) message.channel.sendMessage("Oui.");
  };
 
  if(message.content == '--botinfo') {
