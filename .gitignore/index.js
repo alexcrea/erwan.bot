@@ -26,12 +26,6 @@ client.on('message', message => {
 var msg = message
 
 
-if (message.content === '--tping') {
-    // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
-    // The second ping is an average latency between the bot and the websocket server (one-way, not round-trip)
-    const m = await message.channel.send("Ping?");
-    m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
-  }
 
 
  const guildArray = client.guilds.map((guild) => {
@@ -229,7 +223,10 @@ message.channel.send({embed: {
     msg.author.send("https://discordapp.com/oauth2/authorize?client_id=468140538537967626&scope=bot&permissions=14")
   }
  
- 
+  if (message.content === '--edit') {
+  message.channel.send('Si tu le dit')
+    message.edit('Voilat chef')
+ }
  
 });
 
