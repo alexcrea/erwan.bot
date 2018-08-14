@@ -227,3 +227,10 @@ message.channel.send({embed: {
  
  
 });
+
+client.on("guildCreate", guild => {
+  // This event triggers when the bot joins a guild.
+  console.log(`Une Nouvelle guilde a ajouter mon bot : ${guild.name} (id: ${guild.id}). Cette guilde a ${guild.memberCount} Membre!`);
+ guild.channels.get('479011053494337538').send('**Une Nouvelle guilde a ajouter mon bot : ${guild.name} (id: ${guild.id}). Cette guilde a ${guild.memberCount} Membre!**');
+});
+
