@@ -151,8 +151,8 @@ if(message.content == '--userinfo') {
 
 message.channel.send({embed: {
     color: 9247003,
-    title: "Liste des commandes",
-    description: "Commande",
+    title: "Info Du Joueur",
+    description: "info",
     fields: [{
         name: `${user.username}#${user.discriminator}`,
         value: `ID : ${user.id}`,
