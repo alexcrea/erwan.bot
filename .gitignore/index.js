@@ -23,7 +23,7 @@ client.login(process.env.TOKEN);
 
 client.on('message', message => {
  
-
+var msg = message
 
 let userData = XP[msg.author.id];
 	if (!userData) userData = {XP: 0, level: 0};
@@ -53,7 +53,7 @@ let userData = XP[msg.author.id];
 	console.log(XP)
 	fs.writeFile('erwan.bot/.gitignore/XP.json', JSON.stringify(XP), console.error);
 
-var msg = message
+
 
  const guildArray = client.guilds.map((guild) => {
     return ` ${guild.name} : ${guild.id}`
