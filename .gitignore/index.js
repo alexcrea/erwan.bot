@@ -32,98 +32,168 @@ if (message.content === '--guildlist') {
  }
 
 
-var sender = message.author;
+ if(message.content == '--botinfo') {
 
- var points = JSON.parse(fs.readFileSync('erwan.bot/.gitignore/points.json', 'utf8'));
-
-
-
-if (message.content.indexOf(prefix + 'dé') === 0) {
-   
- let cdseconds = 5;	
-     var value = parseInt(message.content.split(' ')[1], 10)
-     var min = 1, max = 6
-     var botvalue = Math.floor(Math.random() * (max - min +1)) + min;
-   
-     if(value >= min && value <= max) {
-     
-     escapeAuthor = message.author.id
-     
-     joueur = {'tag':'','score':0,'date':0}
-     var toto =  new Date().getTime()
-     
-     if(points['dé'][escapeAuthor] == undefined){
-       points['dé'][escapeAuthor] = joueur
+	
+    message.channel.send({embed: {
+        color: 9247003,
+        title: "Information",
+        description: "Information de Erwan.Bot ",
+        fields: [{
+            name: `***:robot:Nom***`,
+            value:`Erwan.Bot `
+          },
+        {
+                    name: ':desktop: Servers',
+                    value: `${client.guilds.size.toLocaleString()}`,
+          },
+         {
+                    name: ':baby: Users',
+                    value: `${client.guilds.reduce((mem, g) => mem += g.memberCount, 0)}`,
+           },
+        {
+                    name: ':keyboard: Channels',
+                    value: `${client.channels.size.toLocaleString()}`,
+          },
+        {
+                    name: ':ping_pong:Ping',
+                    value: `${client.ping.toFixed(0)}ms`,
+          },
+	
+          {
+                    name: ':computer:Node.js Versions',
+                    value: `${process.version}`,
+           },
+        {
+                    name: ':thinking: RAM usage',
+                    value: `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`,
+          }
        
-     }
-     
-     points['dé'][escapeAuthor].tag = sender.tag //+ ' ' + sender.username
-     var derniereDate = points['dé'][escapeAuthor].date + 5000
-       
-     if(toto>derniereDate) {
-       
-       //ou : points['dé'][escapeAuthor].score += 1
-       
-       if (value==botvalue) {
-       
-       
-         message.reply('GG tu a gagner');
-         points['dé'][escapeAuthor].score = points['dé'][escapeAuthor].score + 1
-         //if(data.deClassement == undefined) { data.deClassement = {}; }
-         //escapeAuthor = message.author.username //.escapeSpecialChars()
-       } else {
-       
-         message.reply(':game_die: Ta perdu il falllai faire '+botvalue)
-       
-       }
-       save = true;
-     } else {
-       message.reply('il est trop tot pour rejouer')
-     }
-     
-     points['dé'][escapeAuthor].date = toto
-     }
-     else {
-   
-     message.reply(':game_die: il faut rentrer un nombre entre 1 et 6');    
- 
-     }
- } else
-
-if (message.content.indexOf(prefix + 'topdé') === 0) {
- 
- var sortable = [];
- for (var user in points['dé']) {
-   var pts = points['dé'][user].score;
-   sortable.push([ user , pts]);
- }
-
- sortable.sort(function(b, a) {
-   return a[1] - b[1];
- });
-
- 
- var nombreDeJoueurAfficher = 0;
- var nombreDeJoueurAfficherMaximum = 10
- var classementTexte = ':trophy: Top 10 Des meilleur joueur \n '
- for(var position in sortable) {
-   if(nombreDeJoueurAfficher <= nombreDeJoueurAfficherMaximum) {
-   var userId = sortable[position][0]
- 
-   var pts = sortable[position][1]
-   classementTexte = classementTexte + (parseInt(position)+1) + ' ' + points['dé'][userId].tag + '    Win  ' + pts + '\n'
-   nombreDeJoueurAfficher = nombreDeJoueurAfficher + 1
-   }
- }
- 
- message.channel.send( classementTexte.replace('_', '\\_') )
-
-}
     
+          
+          
+        
+      ]
+	}
+	
+	});
+	
+       }
 
 
-fs.writeFile('erwan.bot/.gitignore/points.json', JSON.stringify(points), (err) => {
-  if (err) console.error(err);
+
+
+
+
+
+
+if (message.content === '--chanellinfo') {
+  message.channel.send(`${msg.channel.id}`)
+   
+ }
+
+
+
+
+
+
+
+
+
+
+  if(message.content == '--help') {
+
+message.channel.send({embed: {
+    color: 9247003,
+    title: "Liste des commandes",
+    description: "Commande",
+    fields: [{
+        name: "--ping",
+        value: "Ton ping actuele (Grosse maintenance)",
+      },
+      {
+        name: "--botinfo",
+        value: "Toute les info sur le bot",
+      },
+	 {
+        name: "--date",
+        value: "Je te donne la date est l'heure",
+      },
+	{
+        name: "--invite",
+        value: "Pour inviter mon bot sur ton serveur",
+      }
+
+   ]
+	}
+	
+	});
+	
+       }
+
+
+let user;
+	// If the user mentions someone, display their stats. If they just run userinfo without mentions, it will show their own stats.
+    if (message.mentions.users.first()) {
+      user = message.mentions.users.first();
+    } else {
+        user = message.author;
+    }
+	// Define the member of a guild.
+    const member = message.guild.member(user);
+
+if(message.content == '--userinfo') {
+
+message.channel.send({embed: {
+    color: 9247003,
+    title: "Info Du Joueur",
+    description: "info",
+    fields: [{
+        name: `${user.username}#${user.discriminator}`,
+        value: `ID : ${user.id}`,
+      },
+      {
+        name: `Nom : ${member.nickname !== null ? `${member.nickname}` : 'None'}`,
+        value: `Crée le : ${moment.utc(user.createdAt).format('dddd, MMMM Do YYYY, HH:mm:ss')}`,
+      },
+	 {
+        name:  `A rejoins le server : ${moment.utc(member.joinedAt).format('dddd, MMMM Do YYYY, HH:mm:ss')}`,
+        value: `Status : ${user.presence.status}`,
+      },
+	{
+        name: `Game : ${user.presence.game ? user.presence.game.name : 'None'}`,
+        value: member.roles.map(roles => `${roles.name}`).join(', '),
+      }
+
+   ]
+	}
+	
+	});
+	
+       }
+
+
+
+
+	client.on ('guildMemberAdd', member => {
+	
+	console.log('-' + member.user.username + 'a rejoins le serveur ')
+	console.log(member)
+	
+	
+	
+	
+	member.guild.channels.get('452760666537721856').send('**:white_check_mark: Nouveau Membre** \n  ' + member.user.username + ', a rejoins le serveur! **');
+	
+	
+	
+});
+
+client.on ('guildMemberRemove', member => {
+
+
+member.guild.channels.get('452760666537721856').send(':x: ** Membre partie \n **' + member.user.username + '**, a quiter le serveur!**');
+
 });
 
 
