@@ -31,6 +31,15 @@ if (message.content === '--guildlist') {
    
  }
 
+ if ((message.content.startsWith('--8ball')) && (message.content.endsWith('?'))) {
+   var rnd = randomIntInc(1,5);
+   console.log(rnd);
+   if(rnd===1) message.channel.sendMessage("No.");
+   else if(rnd===2) message.channel.sendMessage("Not Probable.");
+   else if(rnd===3) message.channel.sendMessage("Maybe.");
+   else if(rnd===4) message.channel.sendMessage("Probably.");
+   else if(rnd===5) message.channel.sendMessage("Yes.");
+ };
 
  if(message.content == '--botinfo') {
 
