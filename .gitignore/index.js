@@ -26,7 +26,12 @@ client.on('message', message => {
 var msg = message
 
 
-
+if (message.content === '--tping') {
+    // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
+    // The second ping is an average latency between the bot and the websocket server (one-way, not round-trip)
+    const m = await message.channel.send("Ping?");
+    m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
+  }
 
 
  const guildArray = client.guilds.map((guild) => {
@@ -228,9 +233,9 @@ message.channel.send({embed: {
  
 });
 
-client.on("guildCreate", guild => {
+//client.on("guildCreate", guild => {
   // This event triggers when the bot joins a guild.
-  console.log(`Une Nouvelle guilde a ajouter mon bot : ${guild.name} (id: ${guild.id}). Cette guilde a ${guild.memberCount} Membre!`);
- guild.channels.get('479011053494337538').send('**Une Nouvelle guilde a ajouter mon bot : ${guild.name} (id: ${guild.id}). Cette guilde a ${guild.memberCount} Membre!**');
-});
+ // console.log(`Une Nouvelle guilde a ajouter mon bot : ${guild.name} (id: ${guild.id}). Cette guilde a ${guild.memberCount} Membre!`);
+// guild.channels.get('479011053494337538').send('**Une Nouvelle guilde a ajouter mon bot : ${guild.name} (id: ${guild.id}). Cette guilde a ${guild.memberCount} Membre!**');
+//});
 
