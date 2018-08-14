@@ -5,6 +5,7 @@ const fs = require('fs');
 const { version } = require("discord.js");
 const moment = require("moment");
 const YTDL = require("ytdl-core");
+const url = require("url")
 
 var prefix = ("--")
 
