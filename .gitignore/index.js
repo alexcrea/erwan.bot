@@ -223,7 +223,7 @@ message.channel.send({embed: {
 
             server.queue.push(args[1]);
 
-            message.channel.sendMessage('`` Votre chanson a été ajoutée à la file d'attente.``')
+            message.channel.sendMessage('`` Votre chanson a été ajoutée à la file d\'attente.``')
             if (!message.guild.voiceConnection) message.member.voiceChannel.join().then(function(connection) {
                 play(connection, message);
             });
