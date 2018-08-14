@@ -175,36 +175,6 @@ message.channel.send({embed: {
 
 
 
-	client.on ('guildMemberAdd', member => {
-	
-	console.log('-' + member.user.username + 'a rejoins le serveur ')
-	console.log(member)
-	
-	
-	
-	
-	member.guild.channels.get('452760666537721856').send('**:white_check_mark: Nouveau Membre** \n  ' + member.user.username + ', a rejoins le serveur! **');
-	
-	
-	
-});
-
-client.on ('guildMemberRemove', member => {
-
-
-member.guild.channels.get('452760666537721856').send(':x: ** Membre partie \n **' + member.user.username + '**, a quiter le serveur!**');
-
-});
-
-
-
-
-
-
-
-
-
-
 
 
 
