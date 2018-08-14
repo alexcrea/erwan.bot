@@ -25,7 +25,12 @@ client.on('message', message => {
  
 var msg = message
 
-
+ if (msg.content === '--test') {
+    msg.channel.send('Orig msg...')
+      .then(nmsg => nmsg.edit('€ 1'))
+      .then(nmsg => nmsg.edit('€ 2'))
+      .then(nmsg => nmsg.edit('€ 3'));
+  }
 
 
  const guildArray = client.guilds.map((guild) => {
