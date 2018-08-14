@@ -122,6 +122,22 @@ let Year = today.toString().split(" ")[3]
 
 
 
+
+
+if (message.content === '--chanellinfo') {
+  message.channel.send(`${msg.channel.id}`)
+   
+ }
+
+
+
+
+
+
+
+
+
+
   if(message.content == '--help') {
 
 message.channel.send({embed: {
