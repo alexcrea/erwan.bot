@@ -37,6 +37,10 @@ var msg = message
     return `${guild.memberCount} : ${guild.name} : ${guild.id}`
     })
 
+if (message.content === '--say') {
+  let content1 = message.content.substr(message.prefix.length + cmd.length).trim();
+    message.channel.sendMessage('\u200B' + content1);
+};
 if (message.content === '--guildlist') {
   message.channel.send(`\`\`\`${guildArray.join("\n")}\`\`\``)
    
