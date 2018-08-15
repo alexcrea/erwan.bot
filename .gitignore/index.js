@@ -21,9 +21,39 @@ client.login(process.env.TOKEN);
 
 
 
-client.on('message', message => {
+client.on('message', async message => {
  
 var msg = message
+
+
+
+
+
+
+
+
+
+let messageArray = message.content.split(" ");
+let cmd = messageArray[0];
+let args = messageArray.slice(1);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
  if (msg.content === '--test') {
     msg.channel.send('Orig msg...')
@@ -40,73 +70,13 @@ var msg = message
     return `${guild.memberCount} : ${guild.name} : ${guild.id}`
     })
 
-if (message.content === '--say') {
-  let content1 = message.content.substr(message.prefix.length + cmd.length).trim();
-    message.channel.sendMessage('\u200B' + content1);
-};
+
 if (message.content === '--guildlist') {
   message.channel.send(`\`\`\`${guildArray.join("\n")}\`\`\``)
    
  }
 
- if ((message.content.startsWith('--8ball')) && (message.content.endsWith('?'))) {
-   var rnd = randomIntInc(1,5);
-   console.log(rnd);
-   if(rnd===1) message.channel.sendMessage("No.");
-   else if(rnd===2) message.channel.sendMessage("Pas probable");
-   else if(rnd===3) message.channel.sendMessage("Peut être.");
-   else if(rnd===4) message.channel.sendMessage("Probablement.");
-   else if(rnd===5) message.channel.sendMessage("Oui.");
- };
-
- if(message.content == '--botinfo') {
-
-	
-    message.channel.send({embed: {
-        color: 9247003,
-        title: "Information",
-        description: "Information de Erwan.Bot ",
-        fields: [{
-            name: `***:robot:Nom***`,
-            value:`Erwan.Bot `
-          },
-        {
-                    name: ':desktop: Servers',
-                    value: `${client.guilds.size.toLocaleString()}`,
-          },
-         {
-                    name: ':baby: Users',
-                    value: `${client.guilds.reduce((mem, g) => mem += g.memberCount, 0)}`,
-           },
-        {
-                    name: ':keyboard: Channels',
-                    value: `${client.channels.size.toLocaleString()}`,
-          },
-        {
-                    name: ':ping_pong:Ping',
-                    value: `${client.ping.toFixed(0)}ms`,
-          },
-	
-          {
-                    name: ':computer:Node.js Versions',
-                    value: `${process.version}`,
-           },
-        {
-                    name: ':thinking: RAM usage',
-                    value: `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`,
-          }
-       
-    
-          
-          
-        
-      ]
-	}
-	
-	});
-	
-       }
-
+ 
 
 
 
