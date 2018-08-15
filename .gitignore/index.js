@@ -27,9 +27,13 @@ var msg = message
 
  if (msg.content === '--test') {
     msg.channel.send('Orig msg...')
-      .then(nmsg => nmsg.edit('€ 1'))
-      .then(nmsg => nmsg.edit('€ 2'))
-      .then(nmsg => nmsg.edit('€ 3'));
+     const m = await msg.say('┬─┬ノ( º _ ºノ)');
+    setTimeout(() => { m.edit('(°-°)\\ ┬─┬'); }, 450);
+    setTimeout(() => { m.edit('(╯°□°)╯    ]'); }, 950);
+    setTimeout(() => { m.edit('(╯°□°)╯  ︵  ┻━┻'); }, 1250);
+   
+   
+   
   }
 
 
