@@ -43,7 +43,7 @@ let args = messageArray.slice(1);
 
 
 
-if(cmd === `${prefix}botinfo`){
+if(cmd === `--botinfo`){
 
 let bicon = bot.user.displayAvatarURL;
 let botembed = new Discord.RichEmbed()
