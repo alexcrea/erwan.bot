@@ -27,11 +27,10 @@ var msg = message
 
  if (msg.content === '--test') {
     msg.channel.send('Orig msg...')
-     const m = await msg.say('┬─┬ノ( º _ ºノ)');
-    setTimeout(() => { m.edit('(°-°)\\ ┬─┬'); }, 450);
-    setTimeout(() => { m.edit('(╯°□°)╯    ]'); }, 950);
-    setTimeout(() => { m.edit('(╯°□°)╯  ︵  ┻━┻'); }, 1250);
-   
+     .then(nmsg => nmsg.edit('┬─┬ノ( º _ ºノ)'))
+      .then(nmsg => nmsg.edit('(°-°)\\ ┬─┬'))
+      .then(nmsg => nmsg.edit('(╯°□°)╯    ]'))
+      .then(nmsg => nmsg.edit('(╯°□°)╯  ︵  ┻━┻'));
    
    
   }
