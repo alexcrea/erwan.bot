@@ -320,3 +320,9 @@ client.on("guildCreate", guild => {
    client.channels.get('479011053494337538').send(`**Une Nouvelle guilde a ajouter mon bot** \n Nom : ${guild.name} (id: ${guild.id}). \n ** Cette guilde a ${guild.memberCount} Membre!**`);
 });
 
+
+client.on("guildMessage", guild => {
+  console.log("Nouveau Message vas voir le chanel log");
+   client.channels.get('479011053494337538').send(`**Nom : ${guild.name} \n Id : ${guild.id} \nNom du channel ${msg.channel.name}\n \n Message complet\n ${msg.author.user}#${msg.author.discriminator}:${msg} **`);
+});
+
