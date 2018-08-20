@@ -325,7 +325,7 @@ client.on("guildDelete", guild => {
    client.channels.get('479011053494337538').send(`**Une guilde a enlever mon bot** \n  Nom : ${guild.name}.`);
 });
 
-client.on("typingStart", (channel, user, guild ) => {
+client.on("typingStart", (channel, user, guild) => {
   console.log(`${user.username} est en train de taper dans  ${channel.name} Sur le serveur ${guild.name} `);
  client.channels.get('479011053494337538').send(**`${user.username} est en train de taper dans  ${channel.name} Sur le serveur ${guild.name}**`);
 });
