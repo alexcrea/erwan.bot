@@ -17,7 +17,7 @@ client.on('ready', function() {
 	console.log("Conections en cour")
 });
 
-client.login(process.env.TOKEN);
+client.login(config.token);
 
 var gh = new GitHub({
   username: process.env.GITUSER,
