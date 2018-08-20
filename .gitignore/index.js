@@ -19,7 +19,10 @@ client.on('ready', function() {
 
 client.login(process.env.TOKEN);
 
-const gh = new GitHub();
+var gh = new GitHub({
+  username: process.env.GITUSER,
+  password: process.env.GITPW
+});
 let gist = gh.getGist(); // not a gist yet
 
 
@@ -142,14 +145,10 @@ gist.create({
          content: JSON.stringify(points)
       }
    }
-}).then(function({data}) {
-   // Promises!
-   let createdGist = data;
-   return gist.read();
-}).then(function({data}) {
-   let retrievedGist = data;
-   // do interesting things
-});
+}).then(function(httpResponse) {
+     var gistJson = httpResponse.data;
+  console.log(gistJson);
+})
 
 
 
