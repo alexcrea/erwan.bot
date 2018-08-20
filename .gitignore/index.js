@@ -145,7 +145,7 @@ gist.create({
 })
 
 */
-  fs.writeFile("./points.json", JSON.stringify(config), (err) => console.error);
+  fs.writeFile("./points.json", JSON.stringify(points), (err) => console.error);
 
 
 
