@@ -7,7 +7,7 @@ const moment = require("moment");
 const YTDL = require("ytdl-core");
 const url = require("url")
 const GitHub = require( 'github-api');
-const config = require("./config.json");
+
 
 
 
@@ -16,13 +16,7 @@ client.on('ready', function() {
 	console.log("Conections en cour")
 });
 
-client.login(config.token);
-
-var gh = new GitHub({
-  username: process.env.GITUSER,
-  password: process.env.GITPW
-});
-let gist = gh.getGist(); // not a gist yet
+client.login(process.env.TOKEN);
 
 
 client.on('message', async message => {
