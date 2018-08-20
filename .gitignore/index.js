@@ -24,7 +24,7 @@ client.login(process.env.TOKEN);
 client.on('message', async message => {
  
 var msg = message
-var points = JSON.parse(fs.readFileSync('.\\points.json', 'utf8'));
+var points = JSON.parse(fs.readFileSync('./points.json', 'utf8'));
 
  if(message.author.bot) return;
   if(message.channel.type === "dm") return;
@@ -124,7 +124,7 @@ if (message.content.indexOf(prefix + 'topdé') === 0) {
     
 
 
-fs.writeFile('.\\points.json', JSON.stringify(points), (err) => {
+fs.writeFile('./points.json', JSON.stringify(points), (err) => {
   if (err) console.error(err);
 });
 
