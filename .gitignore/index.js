@@ -27,6 +27,7 @@ let gist = gh.getGist(); // not a gist yet
 
 client.on('message', async message => {
  
+var prefix = "--";
 var msg = message
 var points = JSON.parse(fs.readFileSync('./points.json', 'utf8'));
 
