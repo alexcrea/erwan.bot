@@ -321,8 +321,3 @@ client.on("guildCreate", guild => {
 });
 
 
-client.on("messageSend", guild => {
-  console.log("Nouveau Message vas voir le chanel log");
-   client.channels.get('479011053494337538').send(`**Nom : ${guild.name} \n ${msg.author.user}#${msg.author.discriminator}:${msg} **`);
-});
-
