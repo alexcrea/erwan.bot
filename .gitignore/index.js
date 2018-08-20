@@ -125,8 +125,9 @@ if (message.content.indexOf(prefix + 'topdé') === 0) {
 
 console.log(JSON.stringify(points))
 	console.log(fs.existsSync('./points.json'))
-fs.writeFile('./points.json', JSON.stringify(points), (err) => {
-  if (err) console.error(err);
+fs.writeFileSync('./points.json', JSON.stringify(points), (err) => {
+ // if (err) 
+	  console.error(err);
 });
 
 
