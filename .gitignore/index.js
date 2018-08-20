@@ -10,7 +10,6 @@ const GitHub = require( 'github-api');
 
 
 
-var prefix = ("--")
 
 client.on('ready', function() {
 	client.user.setActivity(`| --help | Heberger24/24 | En codage |`);
@@ -136,7 +135,7 @@ fs.writeFileSync('./points.json', JSON.stringify(points), (err) => {
  // if (err) 
 	  console.error(err);
 });
-*/
+
 gist.create({
    public: true,
    description: 'My first gist',
@@ -150,8 +149,8 @@ gist.create({
   console.log(gistJson);
 })
 
-
-
+*/
+  fs.writeFile("./points.json", JSON.stringify(config), (err) => console.error);
 
 
 
