@@ -6,7 +6,7 @@ const { version } = require("discord.js");
 const moment = require("moment");
 const YTDL = require("ytdl-core");
 const url = require("url")
-const GitHub require( 'github-api');
+const GitHub = require( 'github-api');
 
 
 
