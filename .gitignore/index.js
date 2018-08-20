@@ -186,7 +186,7 @@ if (message.content === '--chanellinfo') {
 
 
 
-  if(message.content == '--help') {
+ /* if(message.content == '--help') {
 
 message.channel.send({embed: {
     color: 9247003,
@@ -257,7 +257,7 @@ message.channel.send({embed: {
 	
        }
 
-
+*/
 
 
 
