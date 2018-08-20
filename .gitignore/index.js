@@ -24,7 +24,7 @@ client.login(process.env.TOKEN);
 client.on('message', async message => {
  
 var msg = message
-
+var points = JSON.parse(fs.readFileSync('point.json', 'utf8'));
 
  if(message.author.bot) return;
   if(message.channel.type === "dm") return;
@@ -37,24 +37,99 @@ var msg = message
 let messageArray = message.content.split(" ");
 let cmd = messageArray[0];
 let args = messageArray.slice(1);
+var sender = message.author;
 
 
+ if (message.content.indexOf(prefix + 'dé') === 0) {
+   
+ let cdseconds = 5;	
+     var value = parseInt(message.content.split(' ')[1], 10)
+     var min = 1, max = 6
+     var botvalue = Math.floor(Math.random() * (max - min +1)) + min;
+   
+     if(value >= min && value <= max) {
+     
+     escapeAuthor = message.author.id
+     
+     joueur = {'tag':'','score':0,'date':0}
+     var toto =  new Date().getTime()
+     
+     if(points['dé'][escapeAuthor] == undefined){
+       points['dé'][escapeAuthor] = joueur
+       
+     }
+     
+     points['dé'][escapeAuthor].tag = sender.tag //+ ' ' + sender.username
+     var derniereDate = points['dé'][escapeAuthor].date + 5000
+       
+     if(toto>derniereDate) {
+       
+       //ou : points['dé'][escapeAuthor].score += 1
+       
+       if (value==botvalue) {
+       
+       
+         message.reply('GG tu a gagner');
+         points['dé'][escapeAuthor].score = points['dé'][escapeAuthor].score + 1
+         //if(data.deClassement == undefined) { data.deClassement = {}; }
+         //escapeAuthor = message.author.username //.escapeSpecialChars()
+       } else {
+       
+         message.reply(':game_die: Ta perdu il falllai faire '+botvalue)
+       
+       }
+       save = true;
+     } else {
+       message.reply('il est trop tot pour rejouer')
+     }
+     
+     points['dé'][escapeAuthor].date = toto
+     }
+     else {
+   
+     message.reply(':game_die: il faut rentrer un nombre entre 1 et 6');    
+ 
+     }
+ } else
 
+if (message.content.indexOf(prefix + 'topdé') === 0) {
+ 
+ var sortable = [];
+ for (var user in points['dé']) {
+   var pts = points['dé'][user].score;
+   sortable.push([ user , pts]);
+ }
 
+ sortable.sort(function(b, a) {
+   return a[1] - b[1];
+ });
 
+ 
+ var nombreDeJoueurAfficher = 0;
+ var nombreDeJoueurAfficherMaximum = 10
+ var classementTexte = ':trophy: Top 10 Des meilleur joueur \n '
+ for(var position in sortable) {
+   if(nombreDeJoueurAfficher <= nombreDeJoueurAfficherMaximum) {
+   var userId = sortable[position][0]
+ 
+   var pts = sortable[position][1]
+   classementTexte = classementTexte + (parseInt(position)+1) + ' ' + points['dé'][userId].tag + '    Win  ' + pts + '\n'
+   nombreDeJoueurAfficher = nombreDeJoueurAfficher + 1
+   }
+ }
+ 
+ message.channel.send( classementTexte.replace('_', '\\_') )
 
-if(cmd === `--botinfo`){
-
-let bicon = bot.user.displayAvatarURL;
-let botembed = new Discord.RichEmbed()
- .setDescription("Bot Information")
-    .setColor("#15f153")
-    .setThumbnail(bicon)
-    .addField("Bot Name", bot.user.username)
-    .addField("Created On", bot.user.createdAt);
-
-    return message.channel.send(botembed);
 }
+    
+
+
+fs.writeFile('C:\\Users\\Erwan\\Desktop\\Erwan.Bot\\point.json', JSON.stringify(points), (err) => {
+  if (err) console.error(err);
+});
+
+
+
 
 
 
