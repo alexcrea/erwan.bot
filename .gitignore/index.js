@@ -6,7 +6,7 @@ const { version } = require("discord.js");
 const moment = require("moment");
 const YTDL = require("ytdl-core");
 const url = require("url")
-
+import GitHub from 'github-api';
 
 
 
@@ -19,6 +19,8 @@ client.on('ready', function() {
 
 client.login(process.env.TOKEN);
 
+const gh = new GitHub();
+let gist = gh.getGist(); // not a gist yet
 
 
 client.on('message', async message => {
@@ -124,12 +126,23 @@ if (message.content.indexOf(prefix + 'topdé') === 0) {
     
 
 console.log(JSON.stringify(points))
+	
+	/*
 	console.log(fs.existsSync('./points.json'))
 fs.writeFileSync('./points.json', JSON.stringify(points), (err) => {
  // if (err) 
 	  console.error(err);
 });
-
+*/
+gist.create({
+   public: true,
+   description: 'My first gist',
+   files: {
+      './points.json': {
+         content: JSON.stringify(points)
+      }
+   }
+})
 
 
 
