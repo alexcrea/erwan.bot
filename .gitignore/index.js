@@ -14,8 +14,8 @@ const GitHub = require( 'github-api');
 client.on('ready', function() {
 	client.user.setActivity(`| --help | Heberger24/24 | En codage |`);
 	console.log("Conections en cour")
-client.channels.get('479011053494337538').send(`${client.user.username}Se redémarre...`);
-client.channels.get('479011053494337538').send(`${client.user.username} Est prêt`);
+client.channels.get('479011053494337538').send(`**${client.user.username}** Se redémarre...`);
+client.channels.get('479011053494337538').send(`**${client.user.username}** Est prêt`);
 });
 
 client.login(process.env.TOKEN);
