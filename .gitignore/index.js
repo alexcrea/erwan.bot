@@ -141,7 +141,7 @@ gist.create({
    public: true,
    description: 'My first gist',
    files: {
-      './points.json': {
+      'points.json': {
          content: JSON.stringify(points)
       }
    }
