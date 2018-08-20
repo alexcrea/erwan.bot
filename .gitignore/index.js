@@ -142,7 +142,14 @@ gist.create({
          content: JSON.stringify(points)
       }
    }
-})
+}).then(function({data}) {
+   // Promises!
+   let createdGist = data;
+   return gist.read();
+}).then(function({data}) {
+   let retrievedGist = data;
+   // do interesting things
+});
 
 
 
