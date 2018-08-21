@@ -215,15 +215,15 @@ message.channel.send({embed: {
     description: "Commande help",
     fields: [{
         name: "--help fun",
-        value: "Toute les Commande Fun",
+        value: "Toute les Commande Fun (pas encore sorti)",
       },
       {
         name: "--help info",
         value: "Toute les Comande Informations ",
       },
 	 {
-        name: "Help admin",
-        value: "Toute Les Command De Modérations ",
+        name: "--help admin",
+        value: "Toute Les Command De Modérations (pas encore sorti) ",
       }
 	
 
