@@ -212,7 +212,7 @@ if (message.content === '--chanellinfo') {
 message.channel.send("Vérifiez vos DM.")
 
 msg.author.send({embed: {
-    color: 9247003,
+    color: 3248003,
     title: "--help \<Nom\>",
     description: "Commande help",
     fields: [{
@@ -239,7 +239,7 @@ msg.author.send({embed: {
  if(message.content == '--help info') {
 message.channel.send("Vérifiez vos DM.")
 msg.author.send({embed: {
-    color: 9247003,
+    color: 3248003,
     title: "--help info",
     description: "Commande info",
     fields: [{
@@ -293,7 +293,7 @@ let user;
 if(message.content == '--userinfo') {
 
 message.channel.send({embed: {
-    color: 9247003,
+    color: 3248003,
     title: "Info Du Joueur",
     description: "info",
     fields: [{
