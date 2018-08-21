@@ -7,7 +7,7 @@ const moment = require("moment");
 const YTDL = require("ytdl-core");
 const url = require("url")
 const GitHub = require( 'github-api');
-
+const config = require ('./config.json')
 
 
 
@@ -177,6 +177,7 @@ gist.create({
 
 
 if (message.content === '--guildlist') {
+if(message.author.id !== config.ownerID) return;
   message.channel.send(`\`\`\`${guildArray.join("\n")}\`\`\``)
    
  }
