@@ -492,7 +492,7 @@ stats.fireUsed = 0
 }
 
 //Attacks the foe.
-if(input === "attack" && isPlaying == true) {
+if(input === prefix + "attack" && isPlaying == true) {
 
   if(stats.attackMul == 0.5) {
       attackDmg = Math.floor(Math.random() * 16) + 3 / 2
@@ -548,7 +548,7 @@ if(input === "attack" && isPlaying == true) {
 }
 
 //If you say "heal" and you have enough Mana this code will execute.
-if(input === "heal" && isPlaying == true && stats.Mana > 24) {
+if(input === prefix + "heal" && isPlaying == true && stats.Mana > 24) {
   var heal = Math.floor(Math.random() * 13) + 6
   stats.test = heal + stats.plrHP
   stats.plrHP = stats.plrHP + heal
@@ -570,7 +570,7 @@ msg.channel.sendMessage('The foe is on fire and lost ' + stats.toTakeAway + ' hi
 if(input === "heal" && isPlaying == true && stats.Mana < 25) {
 msg.channel.sendMessage('You don\'t have enough Mana!')
 }
-if(input === "fireball" && isPlaying == true && stats.Mana > 5) {
+if(input === prefix + "fireball" && isPlaying == true && stats.Mana > 5) {
 
   if(stats.attackMul == 0.5) {
       attackDmg = Math.floor(Math.random() * 16) + 3 / 2
@@ -624,7 +624,7 @@ msg.channel.sendMessage('The foe is on fire and lost ' + stats.toTakeAway + ' hi
 }
 
 //If you dont have enough mana this triggers.
-if(input === "fireball" && isPlaying == true && stats.Mana < 5) {
+if(input === prefix + "fireball" && isPlaying == true && stats.Mana < 5) {
 msg.channel.sendMessage('You don\'t have enough Mana!')
 }
 
@@ -651,11 +651,11 @@ if(input === "shield" && isPlaying == true && stats.Mana > 5 && stats.cooldown =
 
 
 }
-if(input === 'shield' && stats.cooldown == 0) {
+if(input === prefix + 'shield' && stats.cooldown == 0) {
   msg.channel.sendMessage('The shield is on cooldown.')
 }
 
-if(input === "leech" && isPlaying == true && stats.Mana > 9 && stats.cooldown2 == 1) {
+if(input === prefix + "leech" && isPlaying == true && stats.Mana > 9 && stats.cooldown2 == 1) {
   var heal = Math.floor(Math.random() * 5) + 2
   stats.test = heal + stats.plrHP
   stats.HP = stats.HP - heal
@@ -674,11 +674,11 @@ msg.channel.sendMessage('The foe is on fire and lost ' + stats.toTakeAway + ' hi
   }
   msg.channel.sendMessage(stats.enemy + '\'s HP: ' + stats.HP + '\nYour HP: ' + stats.plrHP + '\nYour Mana ' + stats.Mana + '\nAttack? Heal? Fireball? Shield? Leech?')
 }
-if(input === 'leech' && stats.cooldown2 == 0) {
+if(input === prefix + 'leech' && stats.cooldown2 == 0) {
   msg.channel.sendMessage('Leech is on cooldown.')
 }
 //If you dont have enough mana this triggers.
-if(input === "leech" && isPlaying == true && stats.Mana < 10) {
+if(input === prefix + "leech" && isPlaying == true && stats.Mana < 10) {
 msg.channel.sendMessage('You don\'t have enough Mana!')
 }
 //Evaluation command, if you self-hosting this bot replace my user id with yours.
