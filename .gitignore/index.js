@@ -14,8 +14,7 @@ const config = require ('./config.json')
 client.on('ready', function() {
 	client.user.setActivity(`| --help | Heberger24/24 | En codage |`);
 	console.log("Conections en cour")
-client.channels.get('479011053494337538').send(`**${client.user.username}** Se redémarre...`);
-client.channels.get('479011053494337538').send(`**${client.user.username}** Est prêt`);
+
 });
 
 client.login(process.env.TOKEN);
@@ -179,7 +178,11 @@ gist.create({
 if (message.content === '--guildlist') {
 if(message.author.id !== config.ownerID) return;
   message.channel.send(`\`\`\`${guildArray.join("\n")}\`\`\``)
-   
+ 
+} else {
+
+message.channel.send("Desoler Tu nas pas les droit pour utiliser cette comand")
+
  }
 
  
