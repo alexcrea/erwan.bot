@@ -211,24 +211,21 @@ if (message.content === '--chanellinfo') {
 
 message.channel.send({embed: {
     color: 9247003,
-    title: "Liste des commandes",
-    description: "Commande",
+    title: "--help \<Nom\>",
+    description: "Commande help",
     fields: [{
-        name: "--ping",
-        value: "Ton ping actuele (Grosse maintenance)",
+        name: "--help fun",
+        value: "Toute les Commande Fun",
       },
       {
-        name: "--botinfo",
-        value: "Toute les info sur le bot",
+        name: "--help info",
+        value: "Toute les Comande Informations ",
       },
 	 {
-        name: "--date",
-        value: "Je te donne la date est l'heure",
-      },
-	{
-        name: "--invite",
-        value: "Pour inviter mon bot sur ton serveur",
+        name: "Help admin",
+        value: "Toute Les Command De Modérations ",
       }
+	
 
    ]
 	}
@@ -236,6 +233,49 @@ message.channel.send({embed: {
 	});
 	
        }
+
+ if(message.content == '--help info') {
+
+message.channel.send({embed: {
+    color: 9247003,
+    title: "--help info",
+    description: "Commande info",
+    fields: [{
+        name: "--invite",
+        value: "Je te donne une invite pour ajouter mon bot",
+      },
+      {
+        name: "--botinfo",
+        value: "Toute les info sur le bot",
+      }
+	
+
+   ]
+	}
+	
+	});
+	
+       }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 let user;
