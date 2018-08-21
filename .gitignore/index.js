@@ -209,7 +209,9 @@ if (message.content === '--chanellinfo') {
 
   if(message.content == '--help') {
 
-message.channel.send({embed: {
+message.channel.send("Vérifiez vos DM.")
+
+msg.author.send({embed: {
     color: 9247003,
     title: "--help \<Nom\>",
     description: "Commande help",
@@ -235,8 +237,8 @@ message.channel.send({embed: {
        }
 
  if(message.content == '--help info') {
-
-message.channel.send({embed: {
+message.channel.send("Vérifiez vos DM.")
+msg.author.send({embed: {
     color: 9247003,
     title: "--help info",
     description: "Commande info",
