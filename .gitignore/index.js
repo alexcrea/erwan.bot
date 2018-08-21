@@ -181,7 +181,7 @@ if(message.author.id !== config.ownerID) return;
  
 } else {
 
-message.channel.send("Desoler Tu nas pas les droit pour utiliser cette comand")
+ message.reply("Desoler Tu nas pas les droit pour utiliser cette comand")
 
  }
 
