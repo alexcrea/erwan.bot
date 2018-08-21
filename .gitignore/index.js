@@ -1,5 +1,5 @@
 const Discord = require('discord.js')
-const client = new Discord.Client();
+const client = new Discord.Client({fetchAllMembers:true});
 const { Client, MessageAttachment } = require('discord.js');
 const fs = require('fs');
 const { version } = require("discord.js");
