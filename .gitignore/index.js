@@ -179,9 +179,9 @@ if (message.content === '--guildlist') {
 if(message.author.id !== config.ownerID) return;
   message.channel.send(`\`\`\`${guildArray.join("\n")}\`\`\``)
  
- else
+ 
 
- message.reply("Desoler Tu nas pas les droit pour utiliser cette comand")
+
 
  }
 
