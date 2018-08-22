@@ -237,16 +237,21 @@ if(message.author.id === config.ownerID){
 if (message.content === '--donator?') {
 if(message.author.id === config.donatorID){
   message.channel.send({embed:{
-	title:"Guildlist",
-	description:"Liste des guilde",
-	color: 0xD92804,
+	title:"Donateur ?",
+	description:":white_check_mark:",
+	color: 0x25D202,
 	fields:[
+	{
+		name:`${user.username}#${user.discriminator}`,
+		value:"ID : ${user.id}"
+  	 },
 	 {
-		name:"         List       ",
-		value:`${guildArray.join("\n")}`
+		name:"Tu est actuelement donateur",
+		value:"Profite de tes commande de donateur"
   	 }
 ]
   }})
+
 	
 
 
@@ -264,7 +269,7 @@ if(message.author.id === config.donatorID){
 		value:"ID : ${user.id}"
   	 },
 	 {
-		name:"Tu est actuelement pas donateur pour obtenir des commande fun ou autre en plus !",
+		name:"Tu est actuelement pas donateur , Devient donateur pour obtenir des commande fun ou autre en plus !",
 		value:"Pour devenir donateur tu a doit m\'envoyer  un message sur discord je texpliquerait se qu\'il faut faire mon discord : Erwan#9308"
   	 }
 ]
