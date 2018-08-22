@@ -179,7 +179,7 @@ const command = args.shift().toLowerCase();
 
 
 
-if (command === '--guildlist') {
+if (message.content === '--guildlist') {
 if(message.author.id === config.ownerID){
   message.channel.send(`\`\`\`${guildArray.join("\n")}\`\`\``)
 	} else {
