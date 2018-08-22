@@ -7,7 +7,7 @@ const moment = require("moment");
 const YTDL = require("ytdl-core");
 const url = require("url")
 const GitHub = require( 'github-api');
-const config = require ('./config.json')
+const config = require ('./config.json');
 
 
 
