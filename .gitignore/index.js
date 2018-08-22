@@ -183,7 +183,7 @@ if(message.author.id === config.ownerID){
   message.channel.send({embed:{
 	title:"Guildlist",
 	description:"Liste des guilde",
-	color: 0xD35400,
+	color: 0xD92804,
 	fields:[
 	 {
 		name:"         List       ",
