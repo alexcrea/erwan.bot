@@ -10,7 +10,6 @@ const GitHub = require( 'github-api');
 const config = require ('./config.json');
 
 
-
 client.on('ready', function() {
 	client.user.setActivity(`| --help | Heberger24/24 | En codage |`);
 	console.log("Conections en cour")
@@ -157,8 +156,6 @@ gist.create({
 
 
 
-
-
  if (msg.content === '--test') {
     msg.channel.send('Orig msg...')
      .then(nmsg => nmsg.edit('┬─┬ノ( º _ ºノ)'))
@@ -173,27 +170,21 @@ gist.create({
  const guildArray = client.guilds.map((guild) => {
     return `${guild.memberCount} : ${guild.name} : ${guild.id}`
     })
-
-
-const args = message.content.slice(prefix.length).trim().split(/ +/g);
 const command = args.shift().toLowerCase();
 
 
 
 
 if (command === '--guildlist') {
-if(message.author.id !== config.ownerID) return;
+if(message.author.id !== config.ownerID){
   message.channel.send(`\`\`\`${guildArray.join("\n")}\`\`\``)
- 
- 
-} else {
+	}else {
 
-if (command === '--guildlist') {
-message.reply("Tu nas pas les droit pour utiliser cette command ! ")
+  message.reply("Tu nas pas les droit pour utiliser cette command ! ")
 
 
- };
-
+ }
+}
  
 
 
