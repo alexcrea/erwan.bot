@@ -186,7 +186,7 @@ if(message.author.id === config.ownerID){
 	color: 0x17A589,
 	fields:[
 	 {
-		name:"Guildlist",
+		name:"         list       ",
 		value:`${guildArray.join("\n")}`
   	 }
 ]
