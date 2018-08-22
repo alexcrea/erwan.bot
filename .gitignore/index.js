@@ -173,14 +173,19 @@ gist.create({
  const guildArray = client.guilds.map((guild) => {
     return `${guild.memberCount} : ${guild.name} : ${guild.id}`
     })
+const command = args.shift().toLowerCase();
 
 
-if (message.content === '--guildlist') {
+
+
+if (command === '--guildlist') {
 if(message.author.id !== config.ownerID) return;
   message.channel.send(`\`\`\`${guildArray.join("\n")}\`\`\``)
  
  
+} else {
 
+message.reply("Tu nas pas les droit pour utiliser cette command ! ")
 
 
  }
