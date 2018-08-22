@@ -188,7 +188,7 @@ if(message.author.id !== config.ownerID) return;
  
 } else {
 
-if (command === '--guildlist') {
+
 message.reply("Tu nas pas les droit pour utiliser cette command ! ")
 
 
