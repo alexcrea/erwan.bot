@@ -173,6 +173,8 @@ gist.create({
  const guildArray = client.guilds.map((guild) => {
     return `${guild.memberCount} : ${guild.name} : ${guild.id}`
     })
+
+
 const args = message.content.slice(prefix.length).trim().split(/ +/g);
 const command = args.shift().toLowerCase();
 
@@ -186,10 +188,11 @@ if(message.author.id !== config.ownerID) return;
  
 } else {
 
+if (command === '--guildlist') {
 message.reply("Tu nas pas les droit pour utiliser cette command ! ")
 
 
- }
+ };
 
  
 
