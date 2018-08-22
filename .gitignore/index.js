@@ -174,14 +174,23 @@ gist.create({
     return `${guild.memberCount} : ${guild.name} : ${guild.id}`
     })
  
-
+//${guildArray.join("\n")}
 
 
 
 if (message.content === '--guildlist') {
 if(message.author.id === config.ownerID){
-  message.channel.send(`\`\`\`${guildArray.join("\n")}\`\`\``)
-	} else {
+  message.channel.send({embed:{
+	title:"Guildlist",
+	description:"Liste des guilde",
+	color: 0x17A589
+  }})
+	
+
+
+
+
+} else {
 
   message.reply("Tu nas pas les droit pour utiliser cette command ! ")
 
