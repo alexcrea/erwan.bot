@@ -173,6 +173,7 @@ gist.create({
  const guildArray = client.guilds.map((guild) => {
     return `${guild.memberCount} : ${guild.name} : ${guild.id}`
     })
+const args = message.content.slice(prefix.length).trim().split(/ +/g);
 const command = args.shift().toLowerCase();
 
 
