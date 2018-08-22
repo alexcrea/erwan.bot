@@ -36,7 +36,7 @@ var points = JSON.parse(fs.readFileSync('./points.json', 'utf8'));
 
 let messageArray = message.content.split(" ");
 let cmd = messageArray[0];
-let args = messageArray.slice(1);
+//let args = messageArray.slice(1);
 var sender = message.author;
 
 /*
