@@ -151,7 +151,15 @@ gist.create({
 
 */
 
-
+let user;
+	// If the user mentions someone, display their stats. If they just run userinfo without mentions, it will show their own stats.
+    if (message.mentions.users.first()) {
+      user = message.mentions.users.first();
+    } else {
+        user = message.author;
+    }
+	// Define the member of a guild.
+    const member = message.guild.member(user);
 
 
 
@@ -176,6 +184,21 @@ gist.create({
  
 //${guildArray.join("\n")}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//commande :Permision Owner
 
 
 if (message.content === '--guildlist') {
@@ -208,6 +231,47 @@ if(message.author.id === config.ownerID){
 
 
 
+//Commande des donateur
+
+
+if (message.content === '--donator?') {
+if(message.author.id === config.donatorID){
+  message.channel.send({embed:{
+	title:"Guildlist",
+	description:"Liste des guilde",
+	color: 0xD92804,
+	fields:[
+	 {
+		name:"         List       ",
+		value:`${guildArray.join("\n")}`
+  	 }
+]
+  }})
+	
+
+
+
+
+} else {
+
+   message.reply({embed:{
+	title:"Donateur ?",
+	description:":x:",
+	color: 0xD92804,
+	fields:[
+	{
+		name:`${user.username}#${user.discriminator}`,
+		value:"ID : ${user.id}"
+  	 },
+	 {
+		name:"Tu est actuelement pas donateur pour obtenir des commande fun ou autre en plus !",
+		value:"Pour devenir donateur tu a doit m\'envoyer  un message sur discord je texpliquerait se qu\'il faut faire mon discord : Erwan#9308"
+  	 }
+]
+  }})
+
+ }
+}
 
 
 
@@ -299,15 +363,7 @@ msg.author.send({embed: {
 
 
 
-let user;
-	// If the user mentions someone, display their stats. If they just run userinfo without mentions, it will show their own stats.
-    if (message.mentions.users.first()) {
-      user = message.mentions.users.first();
-    } else {
-        user = message.author;
-    }
-	// Define the member of a guild.
-    const member = message.guild.member(user);
+
 
 if(message.content == '--userinfo') {
 
