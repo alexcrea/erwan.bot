@@ -151,15 +151,7 @@ gist.create({
 
 */
 
-let user;
-	// If the user mentions someone, display their stats. If they just run userinfo without mentions, it will show their own stats.
-    if (message.mentions.users.first()) {
-      user = message.mentions.users.first();
-    } else {
-        user = message.author;
-    }
-	// Define the member of a guild.
-    const member = message.guild.member(user);
+
 
 
 
@@ -491,12 +483,51 @@ message.channel.send({embed: {
 
 
 
+ const args = message.content.slice(prefix.length).trim().split(/ +/g);
+  const command = args.shift().toLowerCase();
 
 
 
 
+if(command === `${prefix}fight`) {
 
+let author  = message.author.username;
 
+let user = message.mentions.users.first();
+
+ if(!user) return message.reply("vous n'avez pas précisé qui vous aimeriez combattre!")
+
+ if(user.id == message.author.id) return message.reply('vous ne pouvez pas vous battre vous-même!');
+
+if(user.bot ==  true)
+        return message.reply('Tu ne peut pas battre un bot!');
+
+ var fighter1 = message.author.id;
+    var fighter2 = user.id;
+
+var challenged = user.toString();
+
+ message.channel.send(`${challenged}, ${author1} has challenged you to a duel. Do you accept the challenge, yes or no?`)
+        .then(() => {
+           message.channel.awaitMessages(response => response.content == 'oui' && response.author.id == fighter2 || response.content == 'non' && response.author.id == fighter2,{
+                max: 1,
+                time: 60000,
+                errors: ['time'],
+            })
+            .then((collected) => {
+                if (collected.first().content == 'oui') {
+                    message.channel.send(`${challenged} a accepté le défi!`);
+                }
+                else if(collected.first().content == 'non') {
+                    message.channel.send(`nan`);
+                }
+            })
+            .catch(() => {
+                message.channel.send(`Pas de réponse. Le combat a été annulé.`);
+            });
+        });       
+
+}
 
 
 
