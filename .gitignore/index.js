@@ -483,54 +483,6 @@ message.channel.send({embed: {
 
 
 
- const args = message.content.slice(prefix.length).trim().split(/ +/g);
-  const command = args.shift().toLowerCase();
-
-
-
-
-if(command === `${prefix}fight`) {
-
-let author  = message.author.username;
-
-let user = message.mentions.users.first();
-
- if(!user) return message.reply("vous n'avez pas précisé qui vous aimeriez combattre!")
-
- if(user.id == message.author.id) return message.reply('vous ne pouvez pas vous battre vous-même!');
-
-if(user.bot ==  true)
-        return message.reply('Tu ne peut pas battre un bot!');
-
- var fighter1 = message.author.id;
-    var fighter2 = user.id;
-
-var challenged = user.toString();
-
- message.channel.send(`${challenged}, ${author1} vous a défié à un duel. Acceptez-vous le défi, oui ou non?`)
-        .then(() => {
-           message.channel.awaitMessages(response => return (response.content == 'yes' && message.author.id == fighter2)|| (response.content == 'no' && message.author.id == fighter2), 
-{
-    max: 1,
-    time: 60000,
-    errors: ['time'],
-})
-            .then((collected) => {
-                if (collected.first().content == 'oui') {
-                    message.channel.send(`${challenged} a accepté le défi!`);
-                }
-                else if(collected.first().content == 'non') {
-                    message.channel.send(`nan`);
-                }
-            })
-            .catch(() => {
-                message.channel.send(`Pas de réponse. Le combat a été annulé.`);
-            });
-        });       
-
-}
-
-
 
  
 });
