@@ -507,13 +507,14 @@ if(user.bot ==  true)
 
 var challenged = user.toString();
 
- message.channel.send(`${challenged}, ${author1} has challenged you to a duel. Do you accept the challenge, yes or no?`)
+ message.channel.send(`${challenged}, ${author1} vous a défié à un duel. Acceptez-vous le défi, oui ou non?`)
         .then(() => {
-           message.channel.awaitMessages(response => response.content == 'oui' && response.author.id == fighter2 || response.content == 'non' && response.author.id == fighter2,{
-                max: 1,
-                time: 60000,
-                errors: ['time'],
-            })
+           message.channel.awaitMessages(response => return (response.content == 'yes' && message.author.id == fighter2)|| (response.content == 'no' && message.author.id == fighter2), 
+{
+    max: 1,
+    time: 60000,
+    errors: ['time'],
+})
             .then((collected) => {
                 if (collected.first().content == 'oui') {
                     message.channel.send(`${challenged} a accepté le défi!`);
