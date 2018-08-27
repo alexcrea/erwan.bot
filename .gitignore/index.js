@@ -221,7 +221,7 @@ if(message.author.id === config.ownerID){
 
  
 
-
+var user = msg.author
 
 //Commande des donateur
 
