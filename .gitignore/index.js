@@ -221,7 +221,7 @@ if(message.author.id === config.ownerID){
 
  
 
-var user = msg.author
+
 
 //Commande des donateur
 
@@ -234,8 +234,8 @@ if(message.author.id === config.donatorID){
 	color: 0x25D202,
 	fields:[
 	{
-		name:`${user.username}#${user.discriminator}`,
-		value:`ID : ${user.id}`
+		name:`${msg.author}#${msg.author.discriminator}`,
+		value:`ID :  ${msg.author.id}`
   	 },
 	 {
 		name:"Tu est actuelement donateur",
@@ -257,8 +257,8 @@ if(message.author.id === config.donatorID){
 	color: 0xD92804,
 	fields:[
 	{
-		name:`${user.username}#${user.discriminator}`,
-		value:`ID : ${user.id}`
+		name:`${msg.author}#${msg.author.discriminator}`,
+		value:`ID : ${msg.author.id}`
   	 },
 	 {
 		name:"Tu est actuelement pas donateur , Devient donateur pour obtenir des commande fun ou autre en plus !",
