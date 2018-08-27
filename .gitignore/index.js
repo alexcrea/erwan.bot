@@ -226,6 +226,16 @@ if(message.author.id === config.ownerID){
 //Commande des donateur
 
 
+
+let user;
+	// If the user mentions someone, display their stats. If they just run userinfo without mentions, it will show their own stats.
+    if (message.mentions.users.first()) {
+      user = message.mentions.users.first();
+    } else {
+        user = message.author;
+    }
+
+
 if (message.content === '--donator?') {
 if(message.author.id === config.donatorID){
   message.channel.send({embed:{
@@ -234,8 +244,8 @@ if(message.author.id === config.donatorID){
 	color: 0x25D202,
 	fields:[
 	{
-		name:`${msg.author}#${msg.author.discriminator}`,
-		value:`ID :  ${msg.author.id}`
+		name:`${user.username}#${user.discriminator}`,
+		value:`ID : ${msg.author.id} `
   	 },
 	 {
 		name:"Tu est actuelement donateur",
@@ -257,7 +267,7 @@ if(message.author.id === config.donatorID){
 	color: 0xD92804,
 	fields:[
 	{
-		name:`${msg.author}#${msg.author.discriminator}`,
+		name:`${user.username}#${user.discriminator}`,
 		value:`ID : ${msg.author.id}`
   	 },
 	 {
@@ -358,7 +368,7 @@ msg.author.send({embed: {
 
 
 
-
+ const member = message.guild.member(user);
 
 
 
