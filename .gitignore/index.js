@@ -258,7 +258,7 @@ if(message.author.id === config.donatorID){
 	fields:[
 	{
 		name:`${user.username}#${user.discriminator}`,
-		value:"ID : ${user.id}"
+		value:`ID : ${user.id}`
   	 },
 	 {
 		name:"Tu est actuelement pas donateur , Devient donateur pour obtenir des commande fun ou autre en plus !",
