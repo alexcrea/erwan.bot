@@ -240,7 +240,7 @@ if (message.content === '--donator?') {
 	var didIsDonator = false,
 	for (var IsID; config.donatorID)
 {
-	if(message.author.id === config.donatorID)
+	if(message.author.id === IsID)
 	{
 		didIsDonator = true,
 	}
