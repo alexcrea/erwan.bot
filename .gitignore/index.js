@@ -237,7 +237,16 @@ let user;
 
 
 if (message.content === '--donator?') {
-if(message.author.id === config.donatorID){
+	var didIsDonator = false,
+	for (var IsID; config.donatorID)
+{
+	if(message.author.id === config.donatorID)
+	{
+		didIsDonator = true,
+	}
+		
+} 
+if(didIsDonator === true){
   message.channel.send({embed:{
 	title:"Donateur ?",
 	description:":white_check_mark:",
